@@ -28,7 +28,7 @@ panic = "abort"
 [profile.release]
 lto = false
 opt-level = "s"
-debug = true
+debug = false
 debug-assertions = false
 panic = "abort"
 
