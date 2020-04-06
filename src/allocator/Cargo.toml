@@ -1,0 +1,11 @@
+[package]
+name = "allocator"
+version = "1.0.0"
+authors = [ "Leo Gaspard <leo@gaspard.io>" ]
+license = "MIT"
+
+[lib]
+path = "lib.rs"
+
+[dependencies]
+linked_list_allocator = { version = "0.8.1" }

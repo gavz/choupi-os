@@ -1,0 +1,8 @@
+[package]
+name = "std"
+version = "1.0.0"
+authors = [ "Leo Gaspard <leo@gaspard.io>" ]
+license = "MIT"
+
+[lib]
+path = "lib.rs"
