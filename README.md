@@ -31,6 +31,15 @@ A presentation in French is also [available](https://static.sstic.org/videos2018
  * [rlwrap](https://github.com/hanslub42/rlwrap). rlwrap is used to send
    commands to the board through OpenOCD. rlwrap is also avalaible on main Linux
    distributions.
+   
+## Fetching this repository
+
+To clone the repository and its dependency, you should execute the following
+command:
+
+```
+git clone --recursive https://github.com/choupi-project/choupi-os
+```
 
 ## Toolchain setup
 
