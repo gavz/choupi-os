@@ -14,7 +14,7 @@ RUSTC_TARGET = thumbv7em-none-eabi
 SIGINFOHDR = /usr/include/signal.h
 
 vpath %.c src
-vpath %.c Drivers/STM32F4xx_HAL_Driver/Src/
+vpath %.c STM32CubeF4/Drivers/STM32F4xx_HAL_Driver/Src/
 
 OUT_BUILD = target/build
 
@@ -22,11 +22,11 @@ OUT_BUILD = target/build
 # Platform spec #
 #################
 
-SRCS = ./Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f401xe.s
+SRCS = ./STM32CubeF4/Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f401xe.s
 DEFS = -DSTM32F401xE
 OCD = /usr/share/openocd/scripts/board/st_nucleo_f4.cfg
 LDFLAGS = -Tstm32f401xe.ld
-BINDINGHDR = ./Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f401xe.h
+BINDINGHDR = ./STM32CubeF4/Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f401xe.h
 RSPLATFORM = --features stm32f401re
 
 ##########
@@ -61,12 +61,12 @@ SRCS += src/stm32f4xx_it.c
 SRCS += src/system_stm32f4xx.c
 SRCS += src/newlib_stubs.c
 
-SRCS += Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c
-SRCS += Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c
-SRCS += Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c
-SRCS += Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c
-SRCS += Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c
-SRCS += Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c
+SRCS += STM32CubeF4/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c
+SRCS += STM32CubeF4/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c
+SRCS += STM32CubeF4/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c
+SRCS += STM32CubeF4/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c
+SRCS += STM32CubeF4/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c
+SRCS += STM32CubeF4/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c
 
 OBJS = $(patsubst %.c, $(OUT_BUILD)/%.o, $(patsubst %.s, $(OUT_BUILD)/%.o, $(SRCS)))
 
@@ -78,7 +78,7 @@ CARGOFLAGS += --target $(RUSTC_TARGET)
 
 RSLIBS = -Ltarget/thumbv7em-none-eabi/$(CARGOPROFILE) -ljavacard_os
 
-INCLUDES = -Isrc -IDrivers/STM32F4xx_HAL_Driver/Inc/ -IDrivers/CMSIS/Device/ST/STM32F4xx/Include/ -IDrivers/CMSIS/Include/
+INCLUDES = -Isrc -ISTM32CubeF4/Drivers/STM32F4xx_HAL_Driver/Inc/ -ISTM32CubeF4/Drivers/CMSIS/Device/ST/STM32F4xx/Include/ -ISTM32CubeF4/Drivers/CMSIS/Include/
 
 CFLAGS += $(DEFS)
 CFLAGS += $(INCLUDES)
